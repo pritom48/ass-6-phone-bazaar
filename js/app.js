@@ -67,7 +67,7 @@ const displayPhoneDetails = phone => {
     phoneDetails.innerHTML = '';
     const div = document.createElement('div');
     div.innerHTML = `
-    <div class="row g-0 w-50 mx-auto mt-5 mb-5">
+    <div class="row g-0 w-50 mx-auto mt-5 mb-5 bg-secondary text-white rounded-3">
         <div class="col-md-4 d-flex align-items-center justify-content-center">
             <img src="${phone.image}" class="img-fluid  rounded-start" alt="...">
         </div>
@@ -86,6 +86,8 @@ const displayPhoneDetails = phone => {
                 <p><b>Radio</b> : ${phone.others.Radio}</p>
                 <p><b>USB</b> : ${phone.others.USB}</p>
                 <p><b>WLAN</b> : ${phone.others.WLAN}</p>
+                <h3>Sensors</h3>
+                <p><b>Sensors</b> : ${phone.sensors}</p>
             </div>
         </div>
     </div>
