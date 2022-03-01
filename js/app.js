@@ -19,11 +19,11 @@ const DisplaySearchResult = phones => {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
-        <div class="card h-100">
-                    <img src="${phone.image}" class="card-img-top" alt="...">
+        <div class="card h-100 rounded border-0 shadow">
+                    <img src="${phone.image}" class="card-img-top w-75 mx-auto" alt="...">
              <div class="card-body">
-                    <h5 class="card-title">Phone Model : ${phone.phone_name}</h5>
-                    <h6>Phone Brand : ${phone.brand}</h6>
+                    <h5 class="card-title text-center">Phone Model : ${phone.phone_name}</h5>
+                    <h6 class="text-center">Phone Brand : ${phone.brand}</h6>
             </div>
         </div>    
         `;
