@@ -15,6 +15,7 @@ const searchPhone = () => {
 const DisplaySearchResult = phones => {
     const searchResult = document.getElementById('search-result');
     searchResult.innerHTML = '';
+
     if (phones.length == 0) {
         const error = document.getElementById('error-msg');
         const div = document.createElement('div')
@@ -25,29 +26,30 @@ const DisplaySearchResult = phones => {
         error.appendChild(div);
     }
 
+
     else {
+        //get all information from api
+        phones.forEach(phone => {
+            const div = document.createElement('div');
+            div.classList.add('col');
 
-    }
-
-    //get all information from api
-    phones.forEach(phone => {
-        const div = document.createElement('div');
-        div.classList.add('col');
-
-        //creat dynamic card
-        div.innerHTML = `
+            //creat dynamic card
+            div.innerHTML = `
         <div class="card h-100 rounded border-0 shadow mt-5">
                     <img src="${phone.image}" class="card-img-top w-50 mx-auto" alt="...">
              <div class="card-body">
                     <h5 class="card-title text-center">Phone Model : ${phone.phone_name}</h5>
                     <h6 class="text-center">Phone Brand : ${phone.brand}</h6>
             </div>
-            <button onclick="loadPhoneDetails('${phone.slug}')" type="button" class="btn btn-secondary w-50 mx-auto">Phone Details</button>
+            <button onclick="loadPhoneDetails('${phone.slug}')" type="button" class="btn btn-secondary w-50 mx-auto mb-3 rounded-pill shadow">Phone Details</button>
         </div>    
         `;
 
-        searchResult.appendChild(div);
-    });
+            searchResult.appendChild(div);
+        });
+
+    }
+
 }
 
 
@@ -62,6 +64,7 @@ const loadPhoneDetails = slugId => {
 const displayPhoneDetails = phone => {
     console.log(phone)
     const phoneDetails = document.getElementById('phone-details');
+    phoneDetails.innerHTML = '';
     const div = document.createElement('div');
     div.innerHTML = `
     <div class="row g-0 w-50 mx-auto mt-5 mb-5">
